@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="CustomDialogStyleMediaPicker" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+    </style>
+
+    <style name="LaunchActivityTheme" parent="AppBaseTheme">
+        <item name="android:windowBackground">@drawable/iv_launch_voa</item>
+    </style>
+    <style name="FirstTheme" parent="AppBaseTheme">
+    </style>
+
+    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+        <item name="QMUITopBarStyle">@style/QDTopBar</item>
+
+    </style>
+
+    <style name="QDTopBar" parent="QMUI.TopBar">
+        <item name="qmui_topbar_separator_color">#c3c3c3</item>
+        <item name="qmui_topbar_bg_color">@color/color_2b2b2b</item>
+        <item name="qmui_topbar_title_color">@color/color_white</item>
+        <item name="qmui_topbar_subtitle_color">@color/color_white</item>
+        <item name="qmui_topbar_height">48dp</item>
+        <item name="qmui_topbar_image_btn_height">48dp</item>
+    </style>
+
+
+    <!--    <style name="NumberProgressBar_Default">-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--        <item name="android:layout_width">match_parent</item>-->
+    <!--        <item name="progress_max">100</item>-->
+    <!--        <item name="progress_current">0</item>-->
+    <!--        <item name="progress_unreached_color">#CCCCCC</item>-->
+    <!--        <item name="progress_reached_color">@color/color_23d41e</item>-->
+    <!--        <item name="progress_text_size">10sp</item>-->
+    <!--        <item name="progress_text_color">@color/color_23d41e</item>-->
+    <!--        <item name="progress_reached_bar_height">1.5dp</item>-->
+    <!--        <item name="progress_unreached_bar_height">0.75dp</item>-->
+    <!--    </style>-->
+
+    <style name="Custom_Answer_Dialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="CustomDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="Animation.Bottom.Rising" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/share_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/share_slide_out_bottom</item>
+    </style>
+
+    <style name="ShareActivityTheme" parent="QMUI.NoActionBar">
+        <item name="android:windowFrame">@android:color/transparent</item><!--边框-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景透明-->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
+    </style>
+
+    <style name="VoaImageRoundStyle">
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+
+    </style>
+
+    <!-- 圆形图片 -->
+    <style name="circleImageStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- 切角图片 -->
+    <style name="cutImageStyle">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <!-- 菱形图片 -->
+    <style name="diamondImageStyle">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- 左上角90度扇形图片 -->
+    <style name="topLeftRoundImageStyle">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeTopLeft">100%</item>
+    </style>
+
+    <!-- 火箭头图片 -->
+    <style name="rocketImageStyle">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopLeft">70%</item>
+        <item name="cornerSizeTopRight">70%</item>
+    </style>
+
+    <!-- 水滴 -->
+    <style name="waterImageStyle">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">25dp</item>
+        <item name="cornerSizeBottomRight">25dp</item>
+        <item name="cornerSizeTopLeft">70%</item>
+        <item name="cornerSizeTopRight">70%</item>
+    </style>
+
+    <!-- 叶子图片 -->
+    <style name="leafImageStyle">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopLeft">50%</item>
+        <item name="cornerSizeBottomRight">50%</item>
+    </style>
+
+    <!-- tip图片 -->
+    <style name="tipImageStyle">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeTopLeft">50%</item>
+
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">50%</item>
+
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerSizeTopRight">50%</item>
+
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerSizeBottomRight">50%</item>
+    </style>
+
+    <style name="dialog_reward" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="SlidingMenu">
+        <attr name="mode">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="viewAbove" format="reference" />
+        <attr name="viewBehind" format="reference" />
+        <attr name="behindOffset" format="dimension" />
+        <attr name="behindWidth" format="dimension" />
+        <attr name="behindScrollScale" format="float" />
+        <attr name="touchModeAbove">
+            <enum name="margin" value="0" />
+            <enum name="fullscreen" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="touchModeBehind">
+            <enum name="margin" value="0" />
+            <enum name="fullscreen" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="shadowDrawable" format="reference" />
+        <attr name="shadowWidth" format="dimension" />
+        <attr name="fadeEnabled" format="boolean" />
+        <attr name="fadeDegree" format="float" />
+        <attr name="selectorEnabled" format="boolean" />
+        <attr name="selectorDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectWordTextView">
+        <attr name="selectColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SubsamplingScaleImageView">
+        <attr name="src" format="reference"/>
+        <attr name="assetName" format="string"/>
+        <attr name="panEnabled" format="boolean"/>
+        <attr name="zoomEnabled" format="boolean"/>
+        <attr name="quickScaleEnabled" format="boolean"/>
+        <attr name="tileBackgroundColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="TypeButtonStyle">
+        <attr name="typeBg" format="reference"/>
+        <attr name="typeSize" format="dimension"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="ShootViewStyle">
+
+        <attr name="innerRadius" format="dimension"/>
+        <attr name="outerRadius" format="dimension"/>
+        <attr name="innerColor" format="color"/>
+        <attr name="outerColor" format="color"/>
+
+
+        <attr name="progressColor" format="color"/>
+        <attr name="progressWidth" format="dimension"/>
+
+        <attr name="curProgress" format="integer"/>
+        <attr name="maxProgress" format="integer"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="ReturnButtonStyle">
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="strokeColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomShapeImageView">
+        <attr name="shape" format="integer">
+            <enum name="circle" value="1" />
+            <enum name="rectangle" value="2" />
+            <enum name="svg" value="3" />
+        </attr>
+
+        <attr name="svg_raw_resource" format="reference" />
+
+    </declare-styleable>
+
+
+</resources>
