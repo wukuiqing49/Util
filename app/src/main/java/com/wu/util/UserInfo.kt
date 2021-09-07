@@ -15,7 +15,7 @@ class UserInfo() {
     var icon: String=""
     var age: Int=0
     var phoneNum: String=""
-    var id: Long=0
+    var id: Int=0
     override fun toString(): String {
         return "UserInfo(name='$name', icon='$icon', age=$age, phoneNum='$phoneNum', id=$id)"
     }

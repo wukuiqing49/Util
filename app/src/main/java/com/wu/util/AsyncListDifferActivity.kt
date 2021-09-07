@@ -1,35 +1,31 @@
 package com.wu.util
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.wu.util.databinding.ActivityAdlBinding
 import com.wu.util.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class AsyncListDifferActivity : AppCompatActivity(), View.OnClickListener {
 
-    var binding: ActivityMainBinding? = null
-
+    var binding: ActivityAdlBinding? = null
     var userList = ArrayList<UserInfo>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView<ActivityAdlBinding>(this, R.layout.activity_adl)
         initView()
+
         binding!!.onClick = this
     }
-
-    var mAdapter: MainAdapter? = null
+    var mAdapter: AsyncListDifferAdapter? = null
     private fun initView() {
-
         binding!!.rvContent.layoutManager = LinearLayoutManager(this)
-
-        mAdapter = MainAdapter(this);
-
-
-        for (index in 0..5) {
+        mAdapter = AsyncListDifferAdapter(this)
+        for (index in 0..10) {
             var userInfo = UserInfo()
             userInfo.id = index
             userInfo.name = "测试" + index
@@ -37,17 +33,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             userList.add(userInfo)
         }
         binding!!.rvContent.adapter = mAdapter
-        mAdapter!!.addItems(userList)
+        mAdapter!!.setDatas(userList)
 
-//        binding!!.btRf.setOnClickListener {
-//            setNewData()
-//        }
-//        binding!!.btAdd.setOnClickListener {
-//            setAddData()
-//        }
-//        binding!!.btRemove.setOnClickListener {
-//            setNewData()
-//        }
+        binding!!.btRf.setOnClickListener {
+            setNewData()
+        }
+        binding!!.btAdd.setOnClickListener {
+            setAddData()
+        }
+        binding!!.btRemove.setOnClickListener {
+            setNewData()
+        }
 
     }
 
@@ -62,21 +58,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             userInfo.phoneNum = "1853853738" + userInfo.id
             userList.add(userInfo)
         }
-
-        var result =
-            DiffUtil.calculateDiff(RecyclerViewDiffCallBack(mAdapter!!.getItems()!!, userList))
-        mAdapter!!.updateItems(userList)
-        result.dispatchUpdatesTo(mAdapter!!)
+        mAdapter!!.setDatas(userList)
 
     }
 
     private fun setNewData() {
         var userList = ArrayList<UserInfo>()
-        for (index in 0..mAdapter!!.getItems()!!.size) {
+        for (index in 0..10) {
             var userInfo = UserInfo()
             if (index == 0) {
                 userInfo.name = "开始"
-            } else if (index == mAdapter!!.getItems()!!.size) {
+            } else if (index == 10) {
                 userInfo.name = "结束"
             } else {
                 userInfo.name = "测试" + index
@@ -85,11 +77,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             userInfo.phoneNum = "1853853738" + index
             userList.add(userInfo)
         }
-        var result = DiffUtil.calculateDiff(RecyclerViewDiffCallBack(mAdapter!!.getItems()!!, userList))
-
         mAdapter!!.setDatas(userList)
-
-        result.dispatchUpdatesTo(mAdapter!!)
     }
 
 
@@ -99,10 +87,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         userList.addAll(mAdapter!!.getItems()!!)
         if (userList == null || userList.size == 0) return
         userList.removeAt(0)
-        var result =
-            DiffUtil.calculateDiff(RecyclerViewDiffCallBack(mAdapter!!.getItems()!!, userList))
-        mAdapter!!.updateItems(userList)
-        result.dispatchUpdatesTo(mAdapter!!)
+        mAdapter!!.setDatas(userList)
     }
 
     override fun onClick(v: View?) {
@@ -115,10 +100,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.bt_remove -> {
                 removeData()
-            }
-            R.id.bt_ald -> {
-                var intent = Intent(this, AsyncListDifferActivity::class.java)
-                startActivity(intent);
             }
         }
     }

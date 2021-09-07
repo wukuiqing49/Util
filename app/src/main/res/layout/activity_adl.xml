@@ -53,14 +53,6 @@
                 android:gravity="center"
                 android:text="REMOVE" />
 
-            <Button
-                android:onClick="@{onClick}"
-                android:id="@+id/bt_ald"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="AsyncListDiffer" />
 
         </LinearLayout>
 

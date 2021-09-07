@@ -1,5 +1,7 @@
 package com.wu.util
 
+import android.os.Bundle
+import android.text.TextUtils
 import androidx.recyclerview.widget.DiffUtil
 
 
@@ -39,7 +41,7 @@ class RecyclerViewDiffCallBack(oldList: List<UserInfo>, newList: List<UserInfo>)
         }
     }
 
-    //判断是否是同一个item
+    //判断是否是同一个item  为true 进入areContentsTheSame
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         if (oldList == null || oldList == null) return false
         var oldItemId = oldList!![oldItemPosition].id
@@ -48,17 +50,31 @@ class RecyclerViewDiffCallBack(oldList: List<UserInfo>, newList: List<UserInfo>)
 
     }
 
-    // 如果item相同，此方法用于判断是否同一个 Item 的内容也相同
+    // 如果item相同，此方法用于判断是否同一个 Item 的内容也相同  为true  进入 getChangePayload
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         if (oldList == null || oldList == null) return false
-        var oldItem = oldList!![oldItemPosition]
-        var newItem = newList!![newItemPosition]
-        return oldItem.toString().equals(newItem)
+        var oldItem = oldList!![oldItemPosition].toString()
+        var newItem = newList!![newItemPosition].toString()
+        return oldItem.equals(newItem)
     }
 
-
+    //  局部刷新  返回null 整条数据刷新
     override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
-        return super.getChangePayload(oldItemPosition, newItemPosition)
+        var oldItem = oldList!![oldItemPosition]
+        var newItem = newList!![newItemPosition]
+
+        var bundle=Bundle()
+           // onBindViewHolder  实现三个参数  payloads   第一个数据为  封装的bundle
+        if (!TextUtils.equals(oldItem.name,newItem.name)){
+            bundle.putString("name",newItem.name)
+        }
+        if (!TextUtils.equals(oldItem.icon,newItem.icon)){
+            bundle.putString("icon",newItem.name)
+        }
+        if (!TextUtils.equals(oldItem.phoneNum,newItem.phoneNum)){
+            bundle.putString("phoneNum",newItem.phoneNum)
+        }
+        return bundle
     }
 
 

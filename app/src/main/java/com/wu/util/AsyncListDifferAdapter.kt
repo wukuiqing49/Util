@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wu.base.adapter.KtAdapter
 import com.wu.base.base.adapter.KtDataBindingViewHolder
@@ -22,7 +24,14 @@ import com.wu.util.databinding.ItemMainOneBinding
  *
  */
 
-class MainAdapter(mContext: Context) : KtAdapter<UserInfo>(mContext) {
+class AsyncListDifferAdapter(mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var mContext: Context? = null
+    var diff: AsyncListDiffer<UserInfo>? = null
+    init {
+        this.mContext = mContext
+        diff=AsyncListDiffer<UserInfo>(this,RecyclerViewDiffItemCallBack())
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -36,6 +45,11 @@ class MainAdapter(mContext: Context) : KtAdapter<UserInfo>(mContext) {
         holder.binding = binding
         return holder
 
+    }
+
+    fun setDatas(newList: List<UserInfo>) {
+        if(diff==null)return
+        diff!!.submitList(newList)
     }
 
     /**
@@ -67,8 +81,6 @@ class MainAdapter(mContext: Context) : KtAdapter<UserInfo>(mContext) {
                 }
             }
         }
-
-
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -77,6 +89,18 @@ class MainAdapter(mContext: Context) : KtAdapter<UserInfo>(mContext) {
         var binding = holder.binding as ItemMainOneBinding
         binding.tvName.setText(getItem(position)!!.name)
         binding.tvPhone.setText(getItem(position)!!.phoneNum)
+    }
+
+    fun getItem(position: Int): UserInfo {
+        return diff!!.currentList.get(position)
+    }
+
+    fun getItems():List<UserInfo>{
+       return diff!!.currentList
+    }
+
+    override fun getItemCount(): Int {
+        return diff!!.currentList.size
     }
 
 }

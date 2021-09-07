@@ -16,15 +16,15 @@ abstract class KtAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     var mContext: Context
 
-    var itemList= ArrayList<T>()
-
+    var itemList = ArrayList<T>()
 
 
     constructor(context: Context) {
         this.mContext = context
     }
+
     override fun getItemCount(): Int {
-       return  itemList.size
+        return itemList.size
     }
 
     fun getItems(): ArrayList<T>? {
@@ -56,7 +56,7 @@ abstract class KtAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder> {
     fun addItems(items: ArrayList<T>?) {
         if (items != null) {
             this.itemList?.addAll(items.asIterable())
-            notifyDataSetChanged()
+//            notifyDataSetChanged()
 //            notifyItemRangeInserted(0,itemList!!.size-1)
 //            notifyItemRangeInserted(0,itemList!!.size-1)
 //            notifyItemRangeInsert()
@@ -64,11 +64,16 @@ abstract class KtAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     }
 
+    fun setDatas(items: List<T>?) {
+
+        this.itemList = (items as ArrayList<T>?)!!
+    }
+
     fun updateItems(items: List<T>?) {
         if (items != null) {
             this.itemList.clear()
             this.itemList.addAll(items)
-            notifyDataSetChanged()
+//            notifyDataSetChanged()
         }
     }
 
@@ -76,7 +81,7 @@ abstract class KtAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.itemList?.remove(item)
     }
 
-    fun removeItems(items: ArrayList<T>?) {
+    fun removeItems(items: List<T>?) {
         if (items != null) {
             this.itemList?.removeAll(items.asIterable())
         }
