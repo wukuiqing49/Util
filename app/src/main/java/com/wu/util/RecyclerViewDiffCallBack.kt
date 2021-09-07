@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
  *
  * @date 2021年09月06日 14:33
  *
- *@des
+ *@des  同步 数据差分对比的监听实现
  *
  */
 

@@ -39,8 +39,7 @@ class MainAdapter(mContext: Context) : KtAdapter<UserInfo>(mContext) {
     }
 
     /**
-     * @param payloads A non-null list of merged payloads. Can be empty list if requires full
-     *                update.
+     * 处理 数据重新绑定以及刷新   payloads为null 整条数据刷新  不为null 获取数据手动刷新指定数据
      */
 
     override fun onBindViewHolder(

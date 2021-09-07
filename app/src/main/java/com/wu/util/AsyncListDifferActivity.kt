@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wu.util.databinding.ActivityAdlBinding
-import com.wu.util.databinding.ActivityMainBinding
 
+/**
+ * DiffUtil 异步刷新
+ */
 class AsyncListDifferActivity : AppCompatActivity(), View.OnClickListener {
 
     var binding: ActivityAdlBinding? = null

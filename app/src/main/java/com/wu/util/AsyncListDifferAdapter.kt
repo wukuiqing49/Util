@@ -20,7 +20,7 @@ import com.wu.util.databinding.ItemMainOneBinding
  *
  * @date 2021年09月06日 15:38
  *
- *@des
+ *@des  DiffUtil  异步刷新
  *
  */
 
@@ -53,8 +53,7 @@ class AsyncListDifferAdapter(mContext: Context) : RecyclerView.Adapter<RecyclerV
     }
 
     /**
-     * @param payloads A non-null list of merged payloads. Can be empty list if requires full
-     *                update.
+     * 处理 数据重新绑定以及刷新   payloads为null 整条数据刷新  不为null 获取数据手动刷新指定数据
      */
 
     override fun onBindViewHolder(
