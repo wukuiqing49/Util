@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
-        <import type="android.view.View.OnClickListener"/>
+
+        <import type="android.view.View.OnClickListener" />
+
         <variable
             name="onClick"
             type="OnClickListener" />
@@ -14,56 +17,72 @@
         tools:context=".MainActivity">
 
 
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <LinearLayout
-            android:background="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <Button
-                android:onClick="@{onClick}"
                 android:id="@+id/bt_rf"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:onClick="@{onClick}"
                 android:text="刷新" />
 
             <Button
-                android:onClick="@{onClick}"
                 android:id="@+id/bt_add"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:onClick="@{onClick}"
                 android:text="ADD" />
 
             <Button
-                android:onClick="@{onClick}"
                 android:id="@+id/bt_remove"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:onClick="@{onClick}"
                 android:text="REMOVE" />
 
             <Button
-                android:onClick="@{onClick}"
                 android:id="@+id/bt_ald"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:onClick="@{onClick}"
                 android:text="AsyncListDiffer" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/bt_screen"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:onClick="@{onClick}"
+                android:text="Screen" />
 
+        </LinearLayout>
+        <com.wu.large.LargeImageView
+            android:visibility="gone"
+            android:background="@color/black"
+            android:id="@+id/iv_large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </RelativeLayout>
 </layout>

@@ -7,6 +7,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.wu.base.util.screen.ScreenShotUtil
 import com.wu.util.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -120,7 +121,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 var intent = Intent(this, AsyncListDifferActivity::class.java)
                 startActivity(intent);
             }
+            R.id.bt_screen -> {
+              showLarge();
+            }
         }
+    }
+
+    private fun showLarge() {
+        binding!!.ivLarge.visibility=View.VISIBLE
+
+       var bitmap= ScreenShotUtil.getScreenPath(binding!!.rvContent);
+
+        binding!!.ivLarge.setBitmap(bitmap)
+
     }
 
 
