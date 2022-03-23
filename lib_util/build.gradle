@@ -57,4 +57,9 @@ dependencies {
 
     implementation 'com.qmuiteam:qmui:1.4.4'
 
+    //数据存储(key values)
+    implementation 'com.tencent:mmkv:1.2.12'
+    //处理 mmkv android api 19 更新找不到  libmmkv.so java.lang.UnsatisfiedLinkError 异常
+    implementation 'com.getkeepsafe.relinker:relinker:1.4.4'
+
 }
