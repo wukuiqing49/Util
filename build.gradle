@@ -43,7 +43,7 @@ ext {
     def versionMinor = 1
     def versionPatch = 0
     def versionBuild = 0
-    def versionCur = 1
+    def versionCur = 2
     // module依赖库公共版本号
     versionCode =  versionMinor * 1000 + versionPatch * 100 + versionBuild * 10 + versionCur
     versionName = "${versionMinor}.${versionPatch}.${versionBuild}.${versionCur}"
