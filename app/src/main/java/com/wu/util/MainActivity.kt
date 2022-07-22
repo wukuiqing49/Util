@@ -3,10 +3,12 @@ package com.wu.util
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.wu.base.util.UriUtil
 import com.wu.base.util.screen.ScreenShotUtil
 import com.wu.util.databinding.ActivityMainBinding
 
@@ -20,6 +22,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         initView()
         binding!!.onClick = this
+        processNet()
+    }
+
+    private fun processNet() {
+        binding!!.btProcess.setOnClickListener {
+           var content= binding!!.edittext.text.toString()
+           var valuses= UriUtil.getQueryParameterValue("https://www.baidu.com?ddd=123","ddd")
+            Log.e("值",valuses!!)
+        }
+
     }
 
     var mAdapter: MainAdapter? = null
