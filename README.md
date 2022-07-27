@@ -1,2 +1,2 @@
 # Util
-implementation 'com.github.wukuiqing49:Util:v1.0.3'
+implementation 'com.github.wukuiqing49:Util:1.0.6'
