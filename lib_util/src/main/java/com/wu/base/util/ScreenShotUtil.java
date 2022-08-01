@@ -1,3 +1,5 @@
+package com.wu.base.util;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Environment;
