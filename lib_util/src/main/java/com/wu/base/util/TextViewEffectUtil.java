@@ -12,7 +12,8 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.widget.TextView;
 
-import com.wkq.vieweventdistribution.R;
+
+import com.wu.base.R;
 
 import java.text.DecimalFormat;
 
@@ -109,13 +110,13 @@ public class TextViewEffectUtil {
     public static void setDrawable(Context mContext, TextView textview, String content){
         SpannableString spannableString = new SpannableString(" "+content);
         //这只图片的宽高
-        Drawable drawable = mContext.getResources().getDrawable(R.mipmap.ic_launcher);
+        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_notifi);
         drawable.setBounds(0, 0, 100, 100);
 
         ImageSpan imageSpan = new ImageSpan(drawable);
         spannableString.setSpan(imageSpan, 0, 1, ImageSpan.ALIGN_BASELINE);
 
-        Drawable drawable2 = mContext.getResources().getDrawable(R.mipmap.ic_launcher);
+        Drawable drawable2 = mContext.getResources().getDrawable(R.drawable.ic_notifi);
         drawable2.setBounds(0, 0, 100, 100);
         ImageSpan imageSpan2 = new ImageSpan(drawable2);
         spannableString.setSpan(imageSpan2, 2, 3, ImageSpan.ALIGN_BASELINE);
